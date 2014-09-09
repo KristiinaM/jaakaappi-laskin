@@ -9,7 +9,7 @@ Taloudessa asuva(t)
 * ohjeeseen tarvittavien raaka-aindeiden olemassaolon tarkistus
 * mahdolliset ohjeet jo olemassa olevista aineista (vanhoihin ohjeisiin perustuen). 
 
-**Jääkaappin sisältö*
+**Jääkaappin sisältö**
 * pitää kirjaa mitä, kuinka paljon ja milloin vanhaksi meneväöä ruokaa jääkaapissa on
 
 **Ruokaohjevarasto**
