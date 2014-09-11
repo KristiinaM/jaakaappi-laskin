@@ -1,2 +1,4 @@
 **Tuntikirjanpito**
+* 9.9. klo 12-12.30, yht. 0,5 tuntia (aiheideointia) 
 * 9.9. klo. 19.30-22.30, yht. 3 tuntia (1. tehtävät)
+* 11.9. klo 19- (luokkakaavio)
