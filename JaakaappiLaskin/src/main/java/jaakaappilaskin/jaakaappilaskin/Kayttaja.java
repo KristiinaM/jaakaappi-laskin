@@ -2,7 +2,7 @@
 
 package jaakaappilaskin.jaakaappilaskin;
 
-public class kayttaja {
+public class Kayttaja {
     
     
     

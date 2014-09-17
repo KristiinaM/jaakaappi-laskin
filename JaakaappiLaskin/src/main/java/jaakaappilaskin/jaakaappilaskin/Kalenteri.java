@@ -1,6 +1,6 @@
 
 package jaakaappilaskin.jaakaappilaskin;
 
-public class kalenteri {
+public class Kalenteri {
     
 }
