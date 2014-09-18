@@ -41,4 +41,12 @@ public class RuokaTest {
         Ruoka ruoka = new Ruoka ("maito");
         assertEquals(ruoka.getNimi(), ruoka.toString());
     }
+    
+    @Test 
+    public void ruokaaSailytetaan(){
+        Ruoka ruoka = new Ruoka("maito",12);
+        ruoka.paivaVaihtuu();
+        ruoka.paivaVaihtuu();
+        assertEquals(10, ruoka.getIka());
+    }
 }

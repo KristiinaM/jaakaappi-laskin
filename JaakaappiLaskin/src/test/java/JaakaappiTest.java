@@ -88,6 +88,18 @@ public class JaakaappiTest {
         kaappi.poistaRuoka(maito);
         assertEquals("piima ", kaappi.toString());
     }
+    
+      @Test
+    public void poistaYksiMonesta(){
+        Jaakaappi kaappi = new Jaakaappi();
+        Ruoka maito = new Ruoka("maito");
+        Ruoka piima = new Ruoka ("piima");
+        kaappi.lisaaRuoka(maito);
+        kaappi.lisaaRuoka(piima);
+        kaappi.lisaaRuoka(piima);
+        kaappi.poistaRuoka(piima);
+        assertEquals("maito piima ", kaappi.toString());
+    }
 
         
     

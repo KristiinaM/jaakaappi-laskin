@@ -36,5 +36,9 @@ public class Jaakaappi {
         return string;
     }
     
+    public void Jarjesta(){
+        Collections.sort
+    }
+            
     
 }

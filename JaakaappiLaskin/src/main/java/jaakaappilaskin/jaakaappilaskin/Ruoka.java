@@ -6,18 +6,15 @@ package jaakaappilaskin.jaakaappilaskin;
 public class Ruoka {
     
     private String nimi;
-    private int ika;
     private int sailyy;
     
     public Ruoka(String nimi){
         this.nimi = nimi;
-        this.ika = 1;
         this.sailyy = 5;
     }
     
     public Ruoka(String nimi, int sailyy){
         this.nimi = nimi;
-        this.ika = 1;
         this.sailyy = sailyy;
     }
     
@@ -30,8 +27,11 @@ public class Ruoka {
     }
     
     public void paivaVaihtuu(){
-        this.ika ++;
         this.sailyy --;
+    }
+    
+    public int getIka(){
+        return this.sailyy;
     }
     
     
