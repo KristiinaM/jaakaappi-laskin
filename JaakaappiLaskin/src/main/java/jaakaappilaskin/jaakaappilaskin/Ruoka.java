@@ -3,7 +3,8 @@
 package jaakaappilaskin.jaakaappilaskin;
 
 
-public class Ruoka {
+public class Ruoka implements Comparable<Ruoka>{
+    
     
     private String nimi;
     private int sailyy;
@@ -30,13 +31,17 @@ public class Ruoka {
         this.sailyy --;
     }
     
-    public int getIka(){
+    public int getSailyvyys(){
         return this.sailyy;
     }
+    @Override
+    public int compareTo(Ruoka ruoka) {
+        return this.nimi.compareToIgnoreCase(ruoka.getNimi());
+    }
     
-    
-    
+}
+
 
             
             
-}
+

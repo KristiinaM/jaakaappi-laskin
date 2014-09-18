@@ -47,6 +47,6 @@ public class RuokaTest {
         Ruoka ruoka = new Ruoka("maito",12);
         ruoka.paivaVaihtuu();
         ruoka.paivaVaihtuu();
-        assertEquals(10, ruoka.getIka());
+        assertEquals(10, ruoka.getSailyvyys());
     }
 }

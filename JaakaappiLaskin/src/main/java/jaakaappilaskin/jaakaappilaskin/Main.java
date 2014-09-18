@@ -16,6 +16,10 @@ public class Main {
     
     jaakaappi.tulosta();
     
+    jaakaappi.jarjesta();
+    
+    jaakaappi.tulosta();
+    
     jaakaappi.poistaRuoka(juusto);
     
     jaakaappi.tulosta();
@@ -23,6 +27,8 @@ public class Main {
     String lista = jaakaappi.toString();
     
     System.out.println(lista);
+    
+    
     
     
     

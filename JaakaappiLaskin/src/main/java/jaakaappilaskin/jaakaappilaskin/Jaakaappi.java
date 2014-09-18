@@ -5,7 +5,7 @@ package jaakaappilaskin.jaakaappilaskin;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Jaakaappi {
+public class Jaakaappi{
     
     private ArrayList<Ruoka> jaakaappi;
     
@@ -23,7 +23,7 @@ public class Jaakaappi {
     
     public void tulosta(){
         for (Ruoka ruoka : jaakaappi){
-            System.out.println(ruoka.getNimi());
+            System.out.println(ruoka.getNimi() + " säilyy " + ruoka.getSailyvyys() + " päivää");
         }   
         
     }
@@ -36,8 +36,8 @@ public class Jaakaappi {
         return string;
     }
     
-    public void Jarjesta(){
-        Collections.sort
+    public void jarjesta(){
+        Collections.sort(jaakaappi);
     }
             
     
