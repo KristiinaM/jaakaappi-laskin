@@ -7,4 +7,4 @@
 * 16.9. klo. 19-20.30 yht. 1,5 tuntia (gitin kanssa tappelua, jos vaikka koodi menisi läpi, en mennyt)
 * 17.9. klo. 18.30- 20.30 yht. 2 tunria (gitin kanssa säädettiin lisää ja lisää koodia sekä pari testiä)
 * 18.9. klo. 16.30-17 yht. 30 min (yritys saada koodi läpi nettiin)
-* 18.9. klo 19- (koodaamista ja dokumentointia) 
+* 18.9. klo 19-22.30 (koodaamista ja dokumentointia) 
