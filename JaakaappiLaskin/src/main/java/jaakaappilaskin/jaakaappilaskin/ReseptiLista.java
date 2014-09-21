@@ -2,27 +2,40 @@
 package jaakaappilaskin.jaakaappilaskin;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Set;
 
 
 public class ReseptiLista {
     
-    private HashMap <String, ArrayList<Ruoka>> reseptiLista;
+    private ArrayList<Resepti> reseptiLista;
 
     public ReseptiLista() {
-        this.reseptiLista = new HashMap <>();
+        this.reseptiLista = new ArrayList<Resepti>();
     }
     
-    public void lisaaResepti(String nimi, ArrayList<Ruoka> aineet){
-        this.reseptiLista.put(nimi, aineet);
+    public void lisaaResepti(String nimi, ArrayList<Ainesosa> aineet){
+        Resepti resepti = new Resepti(nimi, aineet);
+        reseptiLista.add(resepti);
     }
     
-    public ArrayList<Ruoka> etsiResepti(String nimi){
-        return this.reseptiLista.get(nimi);
+    public String etsiResepti(String nimi){
+        for (Resepti resepti : reseptiLista){
+            if (resepti.getNimi().equals(nimi)){
+                return resepti.toString();
+            }
+        }
+        return "Reseptiä ei löytynyt";
     }
     
-    public Set ruokaVaihtoehdot(){
-        return this.reseptiLista.keySet();
+    public String reseptiAineelle(String nimi){
+        for (Resepti resepti : reseptiLista){
+            ArrayList<Ainesosa> aineet = resepti.haeAineet();
+            
+            for (Ainesosa aine: aineet){
+                if(aine.getNimi().equals(nimi)){
+                    return resepti.toString();
+                }
+            }
+        }
+        return "Reseptiä ei löytynyt";
     }
 }

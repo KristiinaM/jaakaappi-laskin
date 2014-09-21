@@ -1,6 +1,8 @@
 
 package jaakaappilaskin.jaakaappilaskin;
 
+import java.util.ArrayList;
+
 public class Main {
     
     public static void main(String[] args){
@@ -28,6 +30,30 @@ public class Main {
     
     System.out.println(lista);
     
+    
+    ArrayList<Ainesosa> puuronAineet = new ArrayList <Ainesosa>();
+    Ainesosa hiutale = new Ainesosa("hiutale", 2, "dl");
+    Ainesosa vesi = new Ainesosa("vesi", 5, "dl");
+    Ainesosa suola = new Ainesosa("suola", 1, "tl");
+        
+    puuronAineet.add(hiutale);
+    puuronAineet.add(vesi);
+    puuronAineet.add(suola);
+        
+    
+    ReseptiLista reseptilista = new ReseptiLista();
+    reseptilista.lisaaResepti("puuro", puuronAineet);
+    
+    String resepti = reseptilista.etsiResepti("puuro");
+    
+    System.out.println(resepti);
+    
+    resepti = "?";
+    
+    resepti = reseptilista.reseptiAineelle("hiutale");
+    
+    System.out.println(resepti);
+        
     
     
     

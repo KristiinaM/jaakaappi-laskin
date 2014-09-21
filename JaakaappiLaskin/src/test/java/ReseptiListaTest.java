@@ -1,4 +1,5 @@
 
+import jaakaappilaskin.jaakaappilaskin.Ainesosa;
 import jaakaappilaskin.jaakaappilaskin.ReseptiLista;
 import jaakaappilaskin.jaakaappilaskin.Ruoka;
 import java.util.ArrayList;
@@ -31,26 +32,34 @@ public class ReseptiListaTest {
     public void tearDown() {
     }
 
-
+    
+    private void lisaaResepteja(ReseptiLista reseptilista){
+        ArrayList<Ainesosa> puuronAineet = new ArrayList <Ainesosa>();
+        Ainesosa hiutale = new Ainesosa("hiutale", 2, "dl");
+        Ainesosa vesi = new Ainesosa("vesi", 5, "dl");
+        Ainesosa suola = new Ainesosa("suola", 1, "tl");
+        
+        puuronAineet.add(hiutale);
+        puuronAineet.add(vesi);
+        puuronAineet.add(suola);
+        
+        
+        reseptilista.lisaaResepti("puuro", puuronAineet);
+        
+    }
+    
     @Test
-    public void reseptinEtsiminen(){
+    public void reseptinHaku(){
         
-        ReseptiLista reseptit =  new ReseptiLista();
+        ReseptiLista reseptilista = new ReseptiLista();
         
-        ArrayList<Ruoka> puuro = new ArrayList<Ruoka>();
-        Ruoka hiutale = new Ruoka("hiutale");
-        Ruoka vesi =  new Ruoka ("vesi");
-        Ruoka suola = new Ruoka ("suola");
-        puuro.add(hiutale);
-        puuro.add(suola);
-        puuro.add(vesi);
-        reseptit.lisaaResepti("puuro", puuro);
+        this.lisaaResepteja(reseptilista);
         
-        String aineet = "";
-        for (Ruoka ruoka : reseptit.etsiResepti("puuro")){
-            aineet = aineet + ruoka.getNimi() + ", ";
-            }
-        assertEquals ("hiutale, suola, vesi, ", aineet);
+        assertEquals("puuro\nhiutale 2 dl\nvesi 5 dl\nsuola 1 tl\n", reseptilista.etsiResepti("puuro"));
+        
+        
+        
+
          
     }
     
