@@ -1,7 +1,9 @@
 
-package jaakaappilaskin.jaakaappilaskin;
+package jaakaappilaskin.sovelluslogiikka;
 
+import jaakaappilaskin.kayttoliittyma.Kayttoliittyma;
 import java.util.ArrayList;
+import javax.swing.SwingUtilities;
 
 public class Main {
     
@@ -54,10 +56,12 @@ public class Main {
     
     System.out.println(resepti);
         
-    
-    
-    
-    
-    
+    Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
+        SwingUtilities.invokeLater(kayttoliittyma);
+
     }
+    
+    
+    
+    
 }

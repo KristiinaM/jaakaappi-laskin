@@ -1,6 +1,6 @@
 
 
-import jaakaappilaskin.jaakaappilaskin.Ruoka;
+import jaakaappilaskin.sovelluslogiikka.Ruoka;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;

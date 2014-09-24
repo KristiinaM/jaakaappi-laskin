@@ -1,5 +1,5 @@
 
-package jaakaappilaskin.jaakaappilaskin;
+package jaakaappilaskin.sovelluslogiikka;
 
 
 public class Ainesosa {

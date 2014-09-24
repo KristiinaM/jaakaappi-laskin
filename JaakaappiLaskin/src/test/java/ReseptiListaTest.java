@@ -1,7 +1,7 @@
 
-import jaakaappilaskin.jaakaappilaskin.Ainesosa;
-import jaakaappilaskin.jaakaappilaskin.ReseptiLista;
-import jaakaappilaskin.jaakaappilaskin.Ruoka;
+import jaakaappilaskin.sovelluslogiikka.Ainesosa;
+import jaakaappilaskin.sovelluslogiikka.ReseptiLista;
+import jaakaappilaskin.sovelluslogiikka.Ruoka;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;

@@ -1,6 +1,6 @@
 
 
-package jaakaappilaskin.jaakaappilaskin;
+package jaakaappilaskin.sovelluslogiikka;
 
 
 public class Ruoka implements Comparable<Ruoka>{
