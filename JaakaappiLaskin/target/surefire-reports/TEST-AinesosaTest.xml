@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="ReseptiListaTest" time="0" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="AinesosaTest" time="0.086" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_20\jre\bin"/>
@@ -63,5 +63,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="ReseptiListaTest" name="reseptinHaku" time="0"/>
+  <testcase classname="AinesosaTest" name="palauttaaTekstina" time="0.003"/>
+  <testcase classname="AinesosaTest" name="palauttaaDoublenOikein" time="0"/>
+  <testcase classname="AinesosaTest" name="palauttaaMaaran" time="0"/>
+  <testcase classname="AinesosaTest" name="palauttaaNimen" time="0"/>
 </testsuite>
