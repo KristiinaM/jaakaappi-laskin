@@ -11,6 +11,8 @@ import org.junit.Test;
 
 public class RuokaTest {
     
+    Ruoka ruoka;
+    
     public RuokaTest() {
     }
     
@@ -24,6 +26,7 @@ public class RuokaTest {
     
     @Before
     public void setUp() {
+        this.ruoka = new Ruoka("maito", 4);
     }
     
     @After
@@ -32,21 +35,48 @@ public class RuokaTest {
 
     @Test
     public void uusiRuoka(){
-        Ruoka ruoka = new Ruoka("maito");
         assertEquals("maito", ruoka.getNimi());
     }
     
     @Test
     public void RuokaToSting(){
-        Ruoka ruoka = new Ruoka ("maito");
         assertEquals(ruoka.getNimi(), ruoka.toString());
     }
     
     @Test 
     public void ruokaaSailytetaan(){
-        Ruoka ruoka = new Ruoka("maito",12);
         ruoka.paivaVaihtuu();
         ruoka.paivaVaihtuu();
-        assertEquals(10, ruoka.getSailyvyys());
+        assertEquals(2, ruoka.getSailyvyys());
     }
+    
+    @Test
+    public void sailyvyysNolla(){
+        ruoka.paivaVaihtuu();
+        ruoka.paivaVaihtuu();
+        ruoka.paivaVaihtuu();
+        ruoka.paivaVaihtuu();
+        assertEquals (0, ruoka.getSailyvyys());
+    }
+    
+    @Test
+    public void sailyvyysNegatiivinen(){
+        ruoka.paivaVaihtuu();
+        ruoka.paivaVaihtuu();
+        ruoka.paivaVaihtuu();
+        ruoka.paivaVaihtuu();
+        ruoka.paivaVaihtuu();
+        ruoka.paivaVaihtuu();
+        assertEquals(-2, ruoka.getSailyvyys());
+    }
+    
+    @Test
+    public void ruoanVertailtavuusAakkosissaEnnen(){
+        assertEquals (2, ruoka.compareTo(new Ruoka ("ketsuppi")));
+    }
+    
+    public void ruoanVertailuAakkosissaJalkeen(){
+        assertEquals (-8, ruoka.compareTo(new Ruoka ("sima")));
+    }
+    
 }
