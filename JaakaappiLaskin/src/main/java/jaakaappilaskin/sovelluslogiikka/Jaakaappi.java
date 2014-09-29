@@ -18,10 +18,34 @@ public class Jaakaappi{
     }
     
     public void poistaRuoka(Ruoka ruoka){
-        this.jaakaappi.remove(ruoka);
+        int i = 0;
+        int sijainti = 0;
+        int sailyvyys = 1000;
+        int pilaantuvinSijainti = 0;
+        
+        for (Ruoka kaapinsisus: jaakaappi){
+            if (kaapinsisus.getNimi().equals(ruoka.getNimi())){
+                if (kaapinsisus.getSailyvyys()< sailyvyys){
+                    pilaantuvinSijainti = sijainti;
+                }
+                i ++;
+            }
+            sijainti ++;
+        }
+        
+        if (i == 0){
+            System.out.print("Ruokaa ei löytynyt");
+        }
+        if (i == 1){
+            this.jaakaappi.remove(ruoka);
+        }
+        if (i > 1){
+            this.jaakaappi.remove(pilaantuvinSijainti);
+        }
     }
     
     public void tulosta(){
+        this.jarjesta();
         for (Ruoka ruoka : jaakaappi){
             System.out.println(ruoka.getNimi() + " säilyy " + ruoka.getSailyvyys() + " päivää");
         }   

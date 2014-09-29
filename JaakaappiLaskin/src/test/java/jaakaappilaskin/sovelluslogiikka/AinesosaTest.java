@@ -1,3 +1,5 @@
+package jaakaappilaskin.sovelluslogiikka;
+
 
 import jaakaappilaskin.sovelluslogiikka.Ainesosa;
 import org.junit.After;

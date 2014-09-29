@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="RuokaTest" time="0.002" errors="0" skipped="0">
+<testsuite tests="10" failures="1" name="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" time="0.01" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files (x86)\Java\jdk1.8.0_20\jre\bin"/>
@@ -45,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="32"/>
     <property name="java.home" value="C:\Program Files (x86)\Java\jdk1.8.0_20\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Users\Tyler\AppData\Roaming\.tmcbeans\dev\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Users\Tyler\AppData\Roaming\.tmcbeans\dev\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="en"/>
     <property name="user.language.format" value="fi"/>
@@ -63,10 +63,63 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="RuokaTest" name="ruokaaSailytetaan" time="0"/>
-  <testcase classname="RuokaTest" name="sailyvyysNegatiivinen" time="0"/>
-  <testcase classname="RuokaTest" name="ruoanVertailtavuusAakkosissaEnnen" time="0"/>
-  <testcase classname="RuokaTest" name="uusiRuoka" time="0"/>
-  <testcase classname="RuokaTest" name="RuokaToSting" time="0"/>
-  <testcase classname="RuokaTest" name="sailyvyysNolla" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" name="lisaaSama" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" name="jarjestaa" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" name="kaksiKaappia" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" name="lisaaKaappiin" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" name="poistaYksiMonesta" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" name="poistaPilaantuvin" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" name="lisaaKaappiinEnemman" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" name="poista" time="0.001"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" name="tulostaa" time="0.008">
+    <failure message="expected:&lt;...aito säilyy 5 päivää[
+piimä säilyy 5 päivää
+piimä säilyy 5 päivää]&gt; but was:&lt;...aito säilyy 5 päivää[
+piima säilyy 5 päivää
+piima säilyy 5 päivää
+]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;...aito säilyy 5 päivää[
+piimä säilyy 5 päivää
+piimä säilyy 5 päivää]&gt; but was:&lt;...aito säilyy 5 päivää[
+piima säilyy 5 päivää
+piima säilyy 5 päivää
+]&gt;
+	at org.junit.Assert.assertEquals(Assert.java:125)
+	at org.junit.Assert.assertEquals(Assert.java:147)
+	at jaakaappilaskin.sovelluslogiikka.JaakaappiTest.tulostaa(JaakaappiTest.java:137)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:45)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:15)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:42)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:20)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:30)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:263)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:68)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:47)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:231)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:60)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:50)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:222)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:28)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:30)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:300)
+	at org.apache.maven.surefire.junit4.JUnit4TestSet.execute(JUnit4TestSet.java:53)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:123)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:104)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:164)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:110)
+	at org.apache.maven.surefire.booter.SurefireStarter.invokeProvider(SurefireStarter.java:175)
+	at org.apache.maven.surefire.booter.SurefireStarter.runSuitesInProcessWhenForked(SurefireStarter.java:107)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:68)
+</failure>
+  </testcase>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.JaakaappiTest" name="alaPosta" time="0"/>
 </testsuite>

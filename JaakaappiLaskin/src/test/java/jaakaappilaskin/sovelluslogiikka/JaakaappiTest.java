@@ -1,7 +1,9 @@
+package jaakaappilaskin.sovelluslogiikka;
 
 
-import jaakaappilaskin.sovelluslogiikka.Jaakaappi;
-import jaakaappilaskin.sovelluslogiikka.Ruoka;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import org.junit.After;
 import org.junit.AfterClass;
 import static org.junit.Assert.*;
@@ -11,6 +13,9 @@ import org.junit.Test;
 
 
 public class JaakaappiTest {
+
+    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    
     
     public JaakaappiTest() {
     }
@@ -25,6 +30,17 @@ public class JaakaappiTest {
     
     @Before
     public void setUp() {
+        System.setOut(new PrintStream(outContent));
+    }
+    
+    @Before
+    public void setUpStreams() {
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @After
+    public void cleanUpStreams() {
+        System.setOut(null);
     }
     
     @After
@@ -108,6 +124,40 @@ public class JaakaappiTest {
         this.lisaaKaksi(kaappi);
         kaappi.jarjesta();
         assertEquals ("maito maito piima piima ", kaappi.toString());
+    }
+    
+    @Test
+    public void tulostaa(){
+        Jaakaappi kaappi = new Jaakaappi();
+        
+        this.lisaaYksi(kaappi);
+        this.lisaaKaksi(kaappi);
+        
+        kaappi.tulosta();
+        assertEquals ( "maito säilyy 5 päivää\npiimä säilyy 5 päivää\npiimä säilyy 5 päivää",outContent.toString());
+    }
+    
+    @Test 
+    public void poistaPilaantuvin(){
+        Jaakaappi kaappi = new Jaakaappi();
+        
+        this.lisaaKaksi(kaappi);
+        Ruoka maito = new Ruoka ("Maito", 6);
+        kaappi.lisaaRuoka(maito);
+        
+        kaappi.poistaRuoka(maito);
+        assertEquals(6, maito.getSailyvyys());
+        
+    }
+    
+    @Test
+    public void alaPosta(){
+        Jaakaappi kaappi = new Jaakaappi();
+        Ruoka lasagne = new Ruoka("Lasagne");
+        this.lisaaKaksi(kaappi);
+        kaappi.poistaRuoka(lasagne);
+        
+        assertEquals("Ruokaa ei löytynyt", outContent.toString());
     }
 
         
