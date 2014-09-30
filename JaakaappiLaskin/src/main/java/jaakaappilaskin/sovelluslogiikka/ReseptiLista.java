@@ -9,7 +9,7 @@ public class ReseptiLista {
     private ArrayList<Resepti> reseptiLista;
 
     public ReseptiLista() {
-        this.reseptiLista = new ArrayList<Resepti>();
+        this.reseptiLista = new ArrayList<>();
     }
     
     public void lisaaResepti(String nimi, ArrayList<Ainesosa> aineet){
@@ -27,15 +27,23 @@ public class ReseptiLista {
     }
     
     public String reseptiAineelle(String nimi){
+        
+        String palautettava = "";
+        
         for (Resepti resepti : reseptiLista){
             ArrayList<Ainesosa> aineet = resepti.haeAineet();
             
             for (Ainesosa aine: aineet){
                 if(aine.getNimi().equals(nimi)){
-                    return resepti.toString();
+                    palautettava += resepti.toString()+ "\n";
                 }
             }
         }
-        return "Reseptiä ei löytynyt";
+        if (palautettava.length()<1){
+            return "Reseptiä ei löytynyt";
+        }
+        else{
+            return palautettava;
+        }
     }
 }

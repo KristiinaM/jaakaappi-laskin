@@ -15,6 +15,8 @@ import static org.junit.Assert.*;
 
 public class ReseptiListaTest {
     
+    ReseptiLista reseptilista;
+    
     public ReseptiListaTest() {
     }
     
@@ -28,6 +30,7 @@ public class ReseptiListaTest {
     
     @Before
     public void setUp() {
+        reseptilista = new ReseptiLista();
     }
     
     @After
@@ -36,7 +39,7 @@ public class ReseptiListaTest {
 
     
     private void lisaaResepteja(ReseptiLista reseptilista){
-        ArrayList<Ainesosa> puuronAineet = new ArrayList <Ainesosa>();
+        ArrayList<Ainesosa> puuronAineet = new ArrayList <>();
         Ainesosa hiutale = new Ainesosa("hiutale", 2, "dl");
         Ainesosa vesi = new Ainesosa("vesi", 5, "dl");
         Ainesosa suola = new Ainesosa("suola", 1, "tl");
@@ -45,28 +48,74 @@ public class ReseptiListaTest {
         puuronAineet.add(vesi);
         puuronAineet.add(suola);
         
+        ArrayList<Ainesosa> pizzapohja = new ArrayList <>();
+        Ainesosa jauhoja =  new Ainesosa ("jauhoja", 4, "dl");
+        Ainesosa vesipizzaan = new Ainesosa ("vesi", 2.5, "dl");
+        Ainesosa hiiva = new Ainesosa ("hiiva", 25, "g");
+        Ainesosa oljy = new Ainesosa ("öljy", 0.5, "dl");
+        
+        pizzapohja.add(jauhoja);
+        pizzapohja.add(vesipizzaan);
+        pizzapohja.add(hiiva);
+        pizzapohja.add(oljy);
+        pizzapohja.add(suola);
+        
         
         reseptilista.lisaaResepti("puuro", puuronAineet);
-        
+        reseptilista.lisaaResepti("pizzapohja", pizzapohja);
     }
     
     @Test
     public void reseptinHaku(){
-        
-        ReseptiLista reseptilista = new ReseptiLista();
-        
         this.lisaaResepteja(reseptilista);
         
-        assertEquals("puuro\nhiutale 2 dl\nvesi 5 dl\nsuola 1 tl\n", reseptilista.etsiResepti("puuro"));
-        
-        
-        
-
-         
+        assertEquals("puuro\nhiutale 2 dl\nvesi 5 dl\nsuola 1 tl\n", reseptilista.etsiResepti("puuro"));  
     }
     
+    @Test
+    public void reseptinHakuAineelle(){
+        this.lisaaResepteja(reseptilista);
+        
+        assertEquals("puuro\nhiutale 2 dl\nvesi 5 dl\nsuola 1 tl\n\n",reseptilista.reseptiAineelle("hiutale"));
+    
+    }
+    
+    @Test
+    public void reseptinHakuUseamminEsiintyvalleAineelle(){
+        this.lisaaResepteja(reseptilista);
+        
+        assertEquals("puuro\nhiutale 2 dl\nvesi 5 dl\nsuola 1 tl\n\npizzapohja\njauhoja 4 dl\nvesi 2.5 dl\nhiiva 25 g\nöljy 0.5 dl\nsuola 1 tl\n\n", reseptilista.reseptiAineelle("suola"));
+    }
+    
+    @Test
+    public void reseptinHakuAineelleToinen(){
+        this.lisaaResepteja(reseptilista);
+        
+        assertEquals("pizzapohja\njauhoja 4 dl\nvesi 2.5 dl\nhiiva 25 g\nöljy 0.5 dl\nsuola 1 tl\n\n" ,reseptilista.reseptiAineelle("jauhoja"));
+    
+    }
+    
+    @Test
+    public void AinettaEiOle(){
+        this.lisaaResepteja(reseptilista);
+        assertEquals("Reseptiä ei löytynyt", reseptilista.reseptiAineelle("kurpitsa"));
+    }
+    
+    @Test
+    public void ReseptiaEiOle(){
+        this.lisaaResepteja(reseptilista);
+        assertEquals("Reseptiä ei löytynyt", reseptilista.etsiResepti("piirakka"));
+    }
+    
+    @Test 
+    public void tyhjaLista(){
+        assertEquals("Reseptiä ei löytynyt", reseptilista.etsiResepti("piirakka"));
+        assertEquals("Reseptiä ei löytynyt", reseptilista.reseptiAineelle("maito"));
+    }
+    
+    
+} 
 
-    } 
 
 
     

@@ -134,7 +134,7 @@ public class JaakaappiTest {
         this.lisaaKaksi(kaappi);
         
         kaappi.tulosta();
-        assertEquals ( "maito säilyy 5 päivää\npiimä säilyy 5 päivää\npiimä säilyy 5 päivää",outContent.toString());
+        assertEquals ( "maito säilyy 5 päivää\r\npiima säilyy 5 päivää\r\npiima säilyy 5 päivää\r\n",outContent.toString());
     }
     
     @Test 
