@@ -1,18 +1,27 @@
 
 package jaakaappilaskin.kayttoliittyma;
 
+import jaakaappilaskin.sovelluslogiikka.*;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
 
 public class Kayttoliittyma implements Runnable {
 
     private JFrame frame;
+    private Jaakaappi jaakaappi;
+    
+    public Kayttoliittyma (Jaakaappi jaakaappi){
+        this.jaakaappi = jaakaappi;
+    } 
     
     @Override
     public void run() {
@@ -28,18 +37,35 @@ public class Kayttoliittyma implements Runnable {
     }
     
     private void luoKomponentit(Container container) {
-        JLabel alkuteksti = new JLabel ("Tämä on jääkaappilaskin! Se pitää kirjaa"
-        +" jääkaappisi sisällöstä ja kertoo, mitä kaikkea tarvitset minkäkin "
-        +"ruoan tekemiseen");
-        container.add((alkuteksti), BorderLayout.NORTH);
+       
+        GridLayout layout = new GridLayout(3, 4);
+        container.setLayout(layout);
         
-        container.add(new JButton ("Uusia ostoksia"), BorderLayout.WEST);
+  
         
-        container.add(new JButton ("Vanhaksi menneet ruoat"), BorderLayout.EAST);
+        //1. rivi
+        container.add(new JLabel ("Tämä on jääkaappilaskin!"));
+        container.add(new JLabel(""));
+        container.add(new JLabel ("Mitä haluat tehdä?"));
+        container.add(new JLabel (""));
         
-        container.add(new JButton ("Uusi resepti"), BorderLayout.CENTER);
+        //2. rivi
         
-        container.add(new JButton ("vanhat reseptit"), BorderLayout.SOUTH);
+        JTextField ruoanNimi = new JTextField("ruoan nimi");
+        JTextField ruoanSailyvyys = new JTextField();
+        JButton lisaaKaappiin = new JButton ("Lisää jääkaappiin");
+        RuokaLisaaja ruokaLisaaja = new RuokaLisaaja(this.jaakaappi,ruoanNimi,ruoanSailyvyys);
+        lisaaKaappiin.addActionListener(ruokaLisaaja);
+        
+        container.add(ruoanNimi);
+        container.add(ruoanSailyvyys);
+        container.add(new JLabel ("Lisää ruoan nimi ja säilyvyys(oletus 5 päivää)"));
+        container.add(lisaaKaappiin);
+        
+        
+        container.add(new JButton ("Jaakaapin sisällön listaus"));
+        container.add(new JButton ("Uusi resepti"));
+        container.add(new JButton ("Reseptihaku"));
                 
         
     }

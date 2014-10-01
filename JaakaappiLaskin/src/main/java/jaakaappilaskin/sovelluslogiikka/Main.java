@@ -56,7 +56,7 @@ public class Main {
     
     System.out.println(resepti);
         
-    Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
+    Kayttoliittyma kayttoliittyma = new Kayttoliittyma(jaakaappi);
         SwingUtilities.invokeLater(kayttoliittyma);
 
     }
