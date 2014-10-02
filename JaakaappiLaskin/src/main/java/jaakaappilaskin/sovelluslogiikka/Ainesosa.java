@@ -1,8 +1,8 @@
 
 package jaakaappilaskin.sovelluslogiikka;
 
-/*
-    * Ainesosa on resepteissa kaytettava aine, joka tarjoaa mahdollisuuden 
+/**
+    *Ainesosa on resepteissa kaytettava aine, joka tarjoaa mahdollisuuden 
     *tarvittavan maaran dokumentointiin
     */
 
@@ -13,10 +13,12 @@ public class Ainesosa {
     private double decimaaliMaara =0.0;
     private String maaranMitta;
 
- /*
+ /**
     * Ainesosan konstruktori, jolle syatetaan kyseisen ruoka-aineen nimi,
     * kaytettava maara ja mittayksikko.
-    * @ param ruoanNimi, maara ja maaranMitta Reseptin kautta tuleva syote
+    * @param ruoanNimi,
+    * @param maara, tarvittava ruan määrä kokonaiskuluna
+    * @param maaranMitta, määrään liittyvä mittayksikkö.
     */   
     
     public Ainesosa(String ruoanNimi, int maara, String maaranMitta){
@@ -25,10 +27,12 @@ public class Ainesosa {
        this.maaranMitta = maaranMitta;
     }
     
-/*
-    * Vaihtoehtoinen konstruktori, jos maara on decimaaliluku
+/**
+    * Vaihtoehtoinen konstruktori, jos maara on decimaaliluku.
     *
-    *@ param ruoanNimi, maara desimaalina, ja maaranMitta
+    *@param ruoanNimi,
+    *@param maara, tarvittava ruoan määrä desimaalilukuna
+    *@param maaranMitta, määrään liittyvä mittayksikkö 
     */    
     
     public Ainesosa (String ruoanNimi, double maara, String maaranMitta){
@@ -37,19 +41,21 @@ public class Ainesosa {
         this.maaranMitta = maaranMitta;
     }
     
-/*
+/**
     * Palauttaa ainesosan nimen.
     *
-    * @return ainesosan nimi    
+    *@return ainesosan nimi    
     */    
     
     public String getNimi(){
         return this.ruoanNimi;
     }
-/*
-    * Palauttaa ainesosan määrän ja määrän mittayksikön String-muodossa
+/**
+    * Palauttaa ainesosan määrän ja määrän mittayksikön String-muodossa. 
+    * Palauttaa kokonaiskuvun, jos desimaaliluku on 0 tai pienempi ja
+    * desimaaliluvun jos kokonaisluku on 0 tai pienenmpi. 
     *
-    * @return ainesosan määrä + mittayksikkö 
+    *@return ainesosan määrä ja mittayksikkö, joko kokonaisluvun tai desimaaliluvun  
     */    
     
     
@@ -65,10 +71,10 @@ public class Ainesosa {
             return haettava;
     }
     
-/*
+/**
     * Palautttaa ainesosan määrineen String muodossa
     * 
-    * @return ainesosan nimi + määrä + mittayksikkö
+    *@return ainesosan nimi + määrä + mittayksikkö
     */    
     
     public String toString(){

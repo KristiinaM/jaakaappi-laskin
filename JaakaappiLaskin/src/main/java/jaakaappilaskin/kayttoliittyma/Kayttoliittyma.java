@@ -13,6 +13,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+/**
+ * Käyttöliittymä, jonka kautta jääkaappilaskimeen pääsee käsiksi
+ * 
+ */
 
 public class Kayttoliittyma implements Runnable {
 
@@ -35,6 +39,14 @@ public class Kayttoliittyma implements Runnable {
         frame.setVisible(true);
         
     }
+    
+    /**
+     * Luo komponentteja käyttöliittymän ikkunan sisälle. Komponenetit on 
+     * järjestetty ikkunassa esiintyvien rivien mukaisesti. 
+     * 
+     * @param container, purkki, jonka sisälle kaikki osat tulevat. 
+     */
+    
     
     private void luoKomponentit(Container container) {
        
@@ -62,6 +74,7 @@ public class Kayttoliittyma implements Runnable {
         container.add(new JLabel ("Lisää ruoan nimi ja säilyvyys(oletus 5 päivää)"));
         container.add(lisaaKaappiin);
         
+        // Muiden rivien alku
         
         container.add(new JButton ("Jaakaapin sisällön listaus"));
         container.add(new JButton ("Uusi resepti"));
