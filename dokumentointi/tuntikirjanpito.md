@@ -12,4 +12,6 @@
 * 22.9. klo. 20.45-22.00 yht. 1,25 tunria (toisen henkilön koodin lukemista ja kommentointia)
 * 24.9. klo. 19.00-20.40 yht. 1 tunti 40 min (käyttöliittymäkertausta ja raakileen aloittelu)
 * 25.9. klo. 19.00-22.30 yht. 3,5 tuntia (pit raporttien ihmetttelyö, uusia testejä ja javaDocin aloitusyritys)
-* 29.9. klo. 18.00-21.00 yht 3 tuntia (testien tekoa ja jaakaapista ruoan poistamisenb sovelluslogiikan päivitys)
+* 29.9. klo. 18.00-21.00 yht 3 tuntia (testien tekoa ja jaakaapista ruoan poistamisen sovelluslogiikan päivitys)
+* 1.10. klo. 18.00-21.00 yht 3 tuntia (sovelluslogiikkan kanssa venkslaamista)
+* 2.10. klo. 19.30-22.30 yht. 3 tuntia (dokumentointia, javadoc ja sekvenssikaavioita)
