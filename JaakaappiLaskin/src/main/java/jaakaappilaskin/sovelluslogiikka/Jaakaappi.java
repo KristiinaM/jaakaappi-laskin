@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Luokka on Kaappi, johon ruokia laitetaan ja josta ne poistetaan sekö josta 
- * olemassa olev at ruoat saadaan näkymään. 
+ * Luokka on Kaappi, johon ruokia laitetaan ja josta ne poistetaan sekä josta 
+ * olemassa olevat ruoat saadaan näkymään. 
  * 
  */
 
@@ -16,7 +16,7 @@ public class Jaakaappi{
     private ArrayList<Ruoka> jaakaappi;
     
     /**
-     * Jääkaappi-luokan konstruktori, mitään parametrejä ei ole. 
+     * Jääkaappi-luokan konstruktori, mitään parametreja ei ole. 
      * Konstruktori muodostaa uuden ArrayList tyyppisen jääkaappin.
      */
     
@@ -36,14 +36,15 @@ public class Jaakaappi{
     
     /**
      * Ruoan poistaminen jääkaapista. Metodi vertaa jääkaapissa olevia ruokia
-     * parametrinä annettuun ja mikäli oikeaa ruokaa ei löydy, kertoo asiasta.
+     * parametrina annettuun ja mikäli oikeaa ruokaa ei löydy, kertoo asiasta.
      * Jos oikean nimisiä ruokia on enemmän kuin yksi metodi poistaa sen, joka 
      * menee ensin vanhaksi. Jos ruoka esiintyy vain kerran, se poistetaan.
      * 
-     * @param ruoka, nopeimmiten pilaantuva tietty ruoka joka poistetaan jääkaapista.  
+     * @param ruoka, nopeimmiten pilaantuva tietty ruoka joka poistetaan jÃ¤Ã¤kaapista.  
+     * @return boolean, postettiinko ruoka  
      */
     
-    public void poistaRuoka(Ruoka ruoka){
+    public boolean poistaRuoka(Ruoka ruoka){
         int i = 0;
         int sijainti = 0;
         int sailyvyys = 1000;
@@ -61,6 +62,7 @@ public class Jaakaappi{
         
         if (i == 0){
             System.out.print("Ruokaa ei löytynyt");
+            return false;
         }
         if (i == 1){
             this.jaakaappi.remove(ruoka);
@@ -68,13 +70,34 @@ public class Jaakaappi{
         if (i > 1){
             this.jaakaappi.remove(pilaantuvinSijainti);
         }
+        return true;
     }
+
+    
+    /**
+     * String muotoinen tulostus jääkaapin sisällölle. Sisältöä muotoiltu,
+     * mitä ominaisuutta ei ole toString metodissa
+     * 
+     * @return jääkaapin sisältö stringinä ja muotoiltuna.  
+     */
+    
+    public String tulostaStringiksi(){
+        this.jarjesta();
+        
+        String tulostettava = "";
+        for (Ruoka ruoka: jaakaappi){
+            tulostettava += ruoka.getNimi() + " säilyy " + ruoka.getSailyvyys() + " päivää \r\n";
+        }
+        
+        return tulostettava;
+    }
+    
+    
     
     /**
      * Tulostaa jääkaapissa olevat ruoat muotoon jokaisen ruoan nimi ja säilyvyys
      * omalle rivilleen.
      */
-    
     public void tulosta(){
         this.jarjesta();
         for (Ruoka ruoka : jaakaappi){

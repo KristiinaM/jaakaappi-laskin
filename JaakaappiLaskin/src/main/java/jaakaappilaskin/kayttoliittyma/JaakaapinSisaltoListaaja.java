@@ -1,6 +1,24 @@
 
 package jaakaappilaskin.kayttoliittyma;
 
-public class JaakaapinSisaltoListaaja {
+import jaakaappilaskin.sovelluslogiikka.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class JaakaapinSisaltoListaaja implements ActionListener{
+
+    private IkkunaAvaaja ikkunaAvaaja;
+    private Jaakaappi jaakaapppi;
+    
+    public JaakaapinSisaltoListaaja(Jaakaappi jaakaappi){
+        this.jaakaapppi = jaakaappi;
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String tulostus = this.jaakaapppi.tulostaStringiksi();
+        this.ikkunaAvaaja = new IkkunaAvaaja(tulostus);
+        ikkunaAvaaja.run();
+    }
     
 }

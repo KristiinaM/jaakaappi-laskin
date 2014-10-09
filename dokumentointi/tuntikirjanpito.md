@@ -15,3 +15,6 @@
 * 29.9. klo. 18.00-21.00 yht 3 tuntia (testien tekoa ja jaakaapista ruoan poistamisen sovelluslogiikan päivitys)
 * 1.10. klo. 18.00-21.00 yht 3 tuntia (sovelluslogiikkan kanssa venkslaamista)
 * 2.10. klo. 19.30-22.30 yht. 3 tuntia (dokumentointia, javadoc ja sekvenssikaavioita)
+* 6.10. klo. 19.00-20.00 yht 1 tunti (käyttöliittymän miettimistä)
+* 8.10. klo. 19.00-22.00 yht. 3 tuntia (käyttöliittymän kanssa säätämistä)
+* 9.10. klo. 18.00-21.30 yht. 3,5 tuntia (käyttöliittymän kanssa säätämistä ja dokumentointia)

@@ -33,7 +33,7 @@ public class RuokaLisaaja implements ActionListener {
         
         Ruoka ruoka;
         
-        if (ruoanSailyvyys == null){
+        if (ruoanSailyvyys.getText().isEmpty()){
             ruoka = new Ruoka(ruoanNimi.getText());
         }
         else {

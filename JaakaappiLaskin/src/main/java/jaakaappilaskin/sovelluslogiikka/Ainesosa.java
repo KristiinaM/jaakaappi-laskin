@@ -14,7 +14,7 @@ public class Ainesosa {
     private String maaranMitta;
 
  /**
-    * Ainesosan konstruktori, jolle syatetaan kyseisen ruoka-aineen nimi,
+    * Ainesosan konstruktori, jolle syötetaan kyseisen ruoka-aineen nimi,
     * kaytettava maara ja mittayksikko.
     * @param ruoanNimi,
     * @param maara, tarvittava ruan määrä kokonaiskuluna

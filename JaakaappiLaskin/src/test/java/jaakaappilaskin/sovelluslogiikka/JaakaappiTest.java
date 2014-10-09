@@ -145,8 +145,9 @@ public class JaakaappiTest {
         Ruoka maito = new Ruoka ("Maito", 6);
         kaappi.lisaaRuoka(maito);
         
-        kaappi.poistaRuoka(maito);
+        boolean onnistuiko = kaappi.poistaRuoka(maito);
         assertEquals(6, maito.getSailyvyys());
+        assertEquals(true, onnistuiko);
         
     }
     
@@ -155,10 +156,12 @@ public class JaakaappiTest {
         Jaakaappi kaappi = new Jaakaappi();
         Ruoka lasagne = new Ruoka("Lasagne");
         this.lisaaKaksi(kaappi);
-        kaappi.poistaRuoka(lasagne);
+        boolean tapahtuiko = kaappi.poistaRuoka(lasagne);
         
         assertEquals("Ruokaa ei löytynyt", outContent.toString());
+        assertEquals(false, tapahtuiko);
     }
+  
 
         
     
