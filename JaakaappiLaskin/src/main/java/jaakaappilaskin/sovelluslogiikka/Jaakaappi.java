@@ -40,7 +40,7 @@ public class Jaakaappi{
      * Jos oikean nimisiä ruokia on enemmän kuin yksi metodi poistaa sen, joka 
      * menee ensin vanhaksi. Jos ruoka esiintyy vain kerran, se poistetaan.
      * 
-     * @param ruoka, nopeimmiten pilaantuva tietty ruoka joka poistetaan jÃ¤Ã¤kaapista.  
+     * @param ruoka, nopeimmiten pilaantuva tietty ruoka joka poistetaan jääkaapista.  
      * @return boolean, postettiinko ruoka  
      */
     
@@ -64,10 +64,7 @@ public class Jaakaappi{
             System.out.print("Ruokaa ei löytynyt");
             return false;
         }
-        if (i == 1){
-            this.jaakaappi.remove(ruoka);
-        }
-        if (i > 1){
+        if (i >= 1){
             this.jaakaappi.remove(pilaantuvinSijainti);
         }
         return true;

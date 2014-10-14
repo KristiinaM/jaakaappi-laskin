@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
 /**
- * KÃ¤yttÃ¶liittymÃ¤, jonka kautta jÃ¤Ã¤kaappilaskimeen pÃ¤Ã¤see kÃ¤siksi
+ * Kayttoliittyma, jonka kautta jaakaappilaskimeen paasee kasiksi
  * 
  */
 
@@ -41,16 +41,16 @@ public class Kayttoliittyma implements Runnable {
     }
     
     /**
-     * Luo komponentteja kÃ¤yttÃ¶liittymÃ¤n ikkunan sisÃ¤lle. Komponenetit on 
-     * jÃ¤rjestetty ikkunassa esiintyvien rivien mukaisesti. 
+     * Luo komponentteja kayttoliittyman ikkunan sisalle. Komponenetit on 
+     * jarjestetty ikkunassa esiintyvien rivien mukaisesti. 
      * 
-     * @param container, purkki, jonka sisÃ¤lle kaikki osat tulevat. 
+     * @param container, purkki, jonka sisalle kaikki osat tulevat. 
      */
     
     
     private void luoKomponentit(Container container) {
        
-        GridLayout layout = new GridLayout(3, 4);
+        GridLayout layout = new GridLayout(5, 4);
         container.setLayout(layout);
         
   
@@ -58,23 +58,35 @@ public class Kayttoliittyma implements Runnable {
         //1. rivi
         container.add(new JLabel ("Tämä on jääkaappilaskin!"));
         container.add(new JLabel(""));
-        container.add(new JLabel ("Mitä haluat tehdä?"));
+        container.add(new JLabel (""));
         container.add(new JLabel (""));
         
-        //2. rivi, lisaaja ja kaksi tekstikenttÃ¤Ã¤
+        //2. rivi, ohjeita
         
-        JTextField ruoanNimi = new JTextField("ruoan nimi");
+        JTextField ohje1 = new JTextField("lisää ruoan nimi alle");
+        ohje1.setEditable(false);
+        JTextArea ohje2 = new JTextArea ("lisää säilyvyys alle \n (tyhjäksi jätettynä oletus 5 päivää)");
+        ohje2.setEditable(false);
+        JLabel tyhja = new JLabel("");
+        
+        container.add(ohje1);
+        container.add(ohje2);
+        container.add(tyhja);
+        container.add(new JLabel(""));
+                
+        //2. rivi, lisaaja ja kaksi tekstikenttaa
+        
+        JTextField ruoanNimi = new JTextField("");
         JTextField ruoanSailyvyys = new JTextField();
         JButton lisaaKaappiin = new JButton ("Lisää jääkaappiin");
         RuokaLisaaja ruokaLisaaja = new RuokaLisaaja(this.jaakaappi,ruoanNimi,ruoanSailyvyys);
-        JTextArea ohjeistus =  new JTextArea ("Lisää ruoan nimi \n ja säilyvyys(oletus 5 päivää)");
-        ohjeistus.setEditable(false);
+        JLabel ohje3 =  new JLabel("Valitse mitä haluat tehdä");
         
         lisaaKaappiin.addActionListener(ruokaLisaaja);
         
         container.add(ruoanNimi);
         container.add(ruoanSailyvyys);
-        container.add(ohjeistus);
+        container.add(ohje3);
         container.add(lisaaKaappiin);
         
         // 3. rivi,

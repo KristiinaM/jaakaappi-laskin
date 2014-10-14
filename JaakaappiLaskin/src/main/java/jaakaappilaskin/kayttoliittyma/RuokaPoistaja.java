@@ -23,13 +23,13 @@ public class RuokaPoistaja implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
                 
-        if (ruoanNimi.getText().equals("ruoan nimi")){
+        if (ruoanNimi.getText().equals("")){
             return;
         }
         else{
             Ruoka ruoka = new Ruoka (ruoanNimi.getText());
             boolean onnistuiko = jaakaappi.poistaRuoka(ruoka);
-            if(onnistuiko == false){
+            if(onnistuiko != true){
                 String eiLoydy = "Ruokaa ei löytynyt.";
                 this.ikkunaAvaaja = new IkkunaAvaaja(eiLoydy);
                 this.ikkunaAvaaja.run();

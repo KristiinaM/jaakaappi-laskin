@@ -11,6 +11,7 @@ public class RuokaLisaaja implements ActionListener {
     private Jaakaappi jaakaappi;
     private JTextField ruoanNimi;
     private JTextField ruoanSailyvyys;
+    private IkkunaAvaaja ikkunaAvaaja;
     
     public RuokaLisaaja (Jaakaappi jaakaappi, JTextField ruoanNimi){
         this.jaakaappi = jaakaappi;
@@ -27,18 +28,34 @@ public class RuokaLisaaja implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        if (ruoanNimi.getText().equals("ruoan nimi")){
+        if (ruoanNimi.getText().equals("")){
             return;
         }
         
-        Ruoka ruoka;
+        Ruoka ruoka= new Ruoka("");
         
         if (ruoanSailyvyys.getText().isEmpty()){
             ruoka = new Ruoka(ruoanNimi.getText());
         }
         else {
-            int sailyvyys =Integer.parseInt(ruoanSailyvyys.getText());
-            ruoka = new Ruoka (ruoanNimi.getText(), sailyvyys);
+            int sailyvyys;
+            
+            try{
+               sailyvyys = Integer.parseInt(ruoanSailyvyys.getText());
+            } 
+            catch (NumberFormatException ex){
+                this.ikkunaAvaaja =  new IkkunaAvaaja (" Säilyvyyden tulee olla numero. ");
+                this.ikkunaAvaaja.run();
+                return;
+            }
+            
+            if(sailyvyys >= 1){
+                ruoka = new Ruoka (ruoanNimi.getText(), sailyvyys);
+            }
+            else{
+                this.ikkunaAvaaja = new IkkunaAvaaja(" Säilyvyys on liian pieni. ");
+                this.ikkunaAvaaja.run();
+            }
         }
         
         this.jaakaappi.lisaaRuoka(ruoka);

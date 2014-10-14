@@ -15,6 +15,7 @@ import org.junit.Test;
 public class JaakaappiTest {
 
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    Jaakaappi kaappi;
     
     
     public JaakaappiTest() {
@@ -31,6 +32,7 @@ public class JaakaappiTest {
     @Before
     public void setUp() {
         System.setOut(new PrintStream(outContent));
+        kaappi = new Jaakaappi();
     }
     
     @Before
@@ -62,7 +64,6 @@ public class JaakaappiTest {
     
     @Test
     public void lisaaKaappiin(){
-        Jaakaappi kaappi = new Jaakaappi();
         this.lisaaYksi(kaappi);
         assertEquals ("piima ", kaappi.toString());
         
@@ -70,25 +71,22 @@ public class JaakaappiTest {
     
     @Test
     public void lisaaKaappiinEnemman(){
-        Jaakaappi kaappi = new Jaakaappi();
         this.lisaaKaksi(kaappi);
         assertEquals ("maito piima ", kaappi.toString());
     }
     
     @Test
     public void kaksiKaappia(){
-        Jaakaappi kaappi1 = new Jaakaappi();
         Jaakaappi kaappi2 = new Jaakaappi();
-        this.lisaaKaksi(kaappi1);
+        this.lisaaKaksi(kaappi);
         this.lisaaYksi(kaappi2);
         assertEquals ("piima ", kaappi2.toString());
-        assertEquals ("maito piima ", kaappi1.toString());
+        assertEquals ("maito piima ", kaappi.toString());
                 
     }
     
     @Test
     public void lisaaSama(){
-        Jaakaappi kaappi = new Jaakaappi();
         this.lisaaKaksi(kaappi);
         this.lisaaKaksi(kaappi);
         assertEquals("maito piima maito piima ", kaappi.toString());
@@ -96,7 +94,6 @@ public class JaakaappiTest {
     
     @Test
     public void poista(){
-        Jaakaappi kaappi = new Jaakaappi();
         Ruoka maito = new Ruoka("maito");
         Ruoka piima = new Ruoka ("piima");
         kaappi.lisaaRuoka(maito);
@@ -107,7 +104,6 @@ public class JaakaappiTest {
     
     @Test
     public void poistaYksiMonesta(){
-        Jaakaappi kaappi = new Jaakaappi();
         Ruoka maito = new Ruoka("maito");
         Ruoka piima = new Ruoka ("piima");
         kaappi.lisaaRuoka(maito);
@@ -119,7 +115,6 @@ public class JaakaappiTest {
     
     @Test
     public void jarjestaa(){
-        Jaakaappi kaappi = new Jaakaappi();
         this.lisaaKaksi(kaappi);
         this.lisaaKaksi(kaappi);
         kaappi.jarjesta();
@@ -128,7 +123,6 @@ public class JaakaappiTest {
     
     @Test
     public void tulostaa(){
-        Jaakaappi kaappi = new Jaakaappi();
         
         this.lisaaYksi(kaappi);
         this.lisaaKaksi(kaappi);
@@ -139,7 +133,6 @@ public class JaakaappiTest {
     
     @Test 
     public void poistaPilaantuvin(){
-        Jaakaappi kaappi = new Jaakaappi();
         
         this.lisaaKaksi(kaappi);
         Ruoka maito = new Ruoka ("Maito", 6);
@@ -153,13 +146,20 @@ public class JaakaappiTest {
     
     @Test
     public void alaPosta(){
-        Jaakaappi kaappi = new Jaakaappi();
         Ruoka lasagne = new Ruoka("Lasagne");
         this.lisaaKaksi(kaappi);
         boolean tapahtuiko = kaappi.poistaRuoka(lasagne);
         
         assertEquals("Ruokaa ei löytynyt", outContent.toString());
         assertEquals(false, tapahtuiko);
+    }
+    
+    @Test
+    public void tyyhjennaKaappi(){
+        this.lisaaYksi(kaappi);
+        Ruoka piima = new Ruoka ("piima");
+        kaappi.poistaRuoka(piima);
+        assertEquals("", kaappi.toString());
     }
   
 
