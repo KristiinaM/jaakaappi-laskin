@@ -10,16 +10,19 @@ public class ReseptiEtsijaNimi implements ActionListener{
 
     private IkkunaAvaaja ikkunaAvaaja;
     ReseptiLista reseptilista;
-    String ruoanNimi;
+    JTextField ruoanNimi;
     
     public ReseptiEtsijaNimi(ReseptiLista reseptilista, JTextField ruoanNimi){
-        this.reseptilista = new ReseptiLista();
-        this.ruoanNimi = ruoanNimi.getText();
+        this.reseptilista = reseptilista;
+        this.ruoanNimi = ruoanNimi;
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
-        String tulos = reseptilista.etsiResepti(ruoanNimi);
+        
+        String ruoka = this.ruoanNimi.getText();
+        
+        String tulos = this.reseptilista.etsiResepti(ruoka);
         this.ikkunaAvaaja = new IkkunaAvaaja(tulos);
         this.ikkunaAvaaja.run();
     }

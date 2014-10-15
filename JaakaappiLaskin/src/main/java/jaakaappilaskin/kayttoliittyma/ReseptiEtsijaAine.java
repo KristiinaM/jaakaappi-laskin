@@ -10,18 +10,20 @@ import javax.swing.JTextField;
 public class ReseptiEtsijaAine implements ActionListener{
 
     private ReseptiLista reseptilista;
-    private String ruoanNimi;
+    private JTextField ruoanNimi;
     private IkkunaAvaaja ikkunaAvaaja;
     
     
-    public ReseptiEtsijaAine(ReseptiLista Reseptilista, JTextField ruoanNimi){
+    public ReseptiEtsijaAine(ReseptiLista reseptilista, JTextField ruoanNimi){
         this.reseptilista  = reseptilista;
-        this.ruoanNimi = ruoanNimi.getText();
+        this.ruoanNimi = ruoanNimi;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String tulos = reseptilista.reseptiAineelle(ruoanNimi);
+        String ruoka = this.ruoanNimi.getText();
+        
+        String tulos = reseptilista.reseptiAineelle(ruoka);
         this.ikkunaAvaaja = new IkkunaAvaaja(tulos);
         this.ikkunaAvaaja.run();
     }

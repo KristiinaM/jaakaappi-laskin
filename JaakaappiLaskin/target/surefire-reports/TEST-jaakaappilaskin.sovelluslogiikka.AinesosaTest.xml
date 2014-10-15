@@ -63,8 +63,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="jaakaappilaskin.sovelluslogiikka.AinesosaTest" name="palauttaaTekstina" time="0.002"/>
-  <testcase classname="jaakaappilaskin.sovelluslogiikka.AinesosaTest" name="palauttaaDoublenOikein" time="0"/>
-  <testcase classname="jaakaappilaskin.sovelluslogiikka.AinesosaTest" name="palauttaaMaaran" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.AinesosaTest" name="palauttaaMaaran" time="0.002"/>
   <testcase classname="jaakaappilaskin.sovelluslogiikka.AinesosaTest" name="palauttaaNimen" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.AinesosaTest" name="palauttaaTekstina" time="0"/>
+  <testcase classname="jaakaappilaskin.sovelluslogiikka.AinesosaTest" name="palauttaaDoublenOikein" time="0"/>
 </testsuite>

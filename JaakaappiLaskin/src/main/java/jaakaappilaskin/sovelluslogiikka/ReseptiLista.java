@@ -1,6 +1,7 @@
 
 package jaakaappilaskin.sovelluslogiikka;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * 
  */
 
-public class ReseptiLista {
+public class ReseptiLista implements Serializable{
     
     private ArrayList<Resepti> reseptiLista;
 
@@ -24,11 +25,20 @@ public class ReseptiLista {
      * Lisää uuden reseptin
      * @param nimi reseptin nimi
      * @param aineet reseptiin kuuluvien aineiden lista
+     * @return boolean saatiinko resepti lisättyä
      */    
     
-    public void lisaaResepti(String nimi, ArrayList<Ainesosa> aineet){
+    public boolean lisaaResepti(String nimi, ArrayList<Ainesosa> aineet){
+        
+        for (Resepti resepti : reseptiLista){
+            if (resepti.getNimi().equals(nimi)){
+                return false;
+            }
+        }
+        
         Resepti resepti = new Resepti(nimi, aineet);
         reseptiLista.add(resepti);
+        return true;
     }
     
     /**
@@ -77,5 +87,27 @@ public class ReseptiLista {
         else{
             return palautettava;
         }
-    }
+        
+    } 
+    
+    /**
+     * Poistetaan jokin olemassa oleva resepti.
+     * @param nimi poistettavan reseptin nimi
+     * @return boolean saatiinko poistettua
+     */
+    
+    
+      public boolean poistaResepti(String nimi){
+          
+          for (Resepti resepti : this.reseptiLista){
+              if(resepti.getNimi().equals(nimi)){
+                  reseptiLista.remove(resepti);
+                  return true;
+              }
+          }
+          
+        return false;
+      }
+    
+    
 }

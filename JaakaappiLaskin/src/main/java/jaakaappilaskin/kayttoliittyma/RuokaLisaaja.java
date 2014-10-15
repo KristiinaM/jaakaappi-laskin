@@ -59,7 +59,7 @@ public class RuokaLisaaja implements ActionListener {
         }
         
         this.jaakaappi.lisaaRuoka(ruoka);
-        ruoanNimi.setText("ruoan nimi");
+        ruoanNimi.setText("");
         ruoanSailyvyys.setText(null);
             
         }

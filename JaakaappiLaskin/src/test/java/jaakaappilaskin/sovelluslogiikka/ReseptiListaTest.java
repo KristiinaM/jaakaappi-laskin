@@ -113,6 +113,40 @@ public class ReseptiListaTest {
         assertEquals("Reseptiä ei löytynyt", reseptilista.reseptiAineelle("maito"));
     }
     
+    @Test 
+    public void uudenReseptinLisaaminen(){
+        this.lisaaResepteja(reseptilista);
+        ArrayList<Ainesosa> salaatti = new ArrayList <>();
+        Ainesosa lehtisalaatti = new Ainesosa("lehtisalaatti", 1, "kerä");
+        Ainesosa kurkku = new Ainesosa("kurkku", 1, "kpl");
+        Ainesosa tomaatti = new Ainesosa("tomaatti", 4, "kpl");
+        assertEquals(true, reseptilista.lisaaResepti("Salaatti", salaatti));
+    }
+    
+    @Test
+    public void samanNimisenReseptinLisaaminen(){
+        this.lisaaResepteja(reseptilista);
+        
+        ArrayList<Ainesosa> pizzapohja = new ArrayList <>();
+        Ainesosa jauhoja =  new Ainesosa ("jauhoja", 4, "dl");
+        Ainesosa vesipizzaan = new Ainesosa ("vesi", 2.5, "dl");
+        Ainesosa hiiva = new Ainesosa ("hiiva", 25, "g");
+        Ainesosa oljy = new Ainesosa ("öljy", 0.5, "dl");
+        
+        assertEquals(false, reseptilista.lisaaResepti("pizzapohja", pizzapohja));
+    }
+    
+    @Test
+    public void loytyvanReseptinPoistaminen(){
+        this.lisaaResepteja(reseptilista);
+        assertEquals(true, reseptilista.poistaResepti("pizzapohja"));
+    }
+    
+    @Test
+    public void eiLoytyvanReseptinPoistaminen(){
+        this.lisaaResepteja(reseptilista);
+        assertEquals(false, reseptilista.poistaResepti("olematon"));
+    }
     
 } 
 

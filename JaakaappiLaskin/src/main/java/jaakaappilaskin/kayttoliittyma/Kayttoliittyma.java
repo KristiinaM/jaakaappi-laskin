@@ -23,8 +23,9 @@ public class Kayttoliittyma implements Runnable {
     private Jaakaappi jaakaappi;
     private ReseptiLista reseptilista;
     
-    public Kayttoliittyma (Jaakaappi jaakaappi, ReseptiLista reseptiLista){
+    public Kayttoliittyma (Jaakaappi jaakaappi, ReseptiLista reseptilista){
         this.jaakaappi = jaakaappi;
+        this.reseptilista = reseptilista;
     } 
     
     @Override
@@ -123,10 +124,17 @@ public class Kayttoliittyma implements Runnable {
         
         container.add(reseptiAineelle);
         
-       // container.add(new JButton ("Uusi resepti"));
+       //reseptinlisäys 
         
+        JTextField reseptinNimi = new JTextField("");
+        JTextArea reseptinAineet = new JTextArea("");
+        JButton uusiResepti = new JButton("Lisää uusi resepti");
+        ReseptiLisaaja reseptiLisaaja= new ReseptiLisaaja(reseptinNimi, reseptinAineet, this.reseptilista);
+        uusiResepti.addActionListener(reseptiLisaaja);
         
-        
+        container.add(reseptinNimi);
+        container.add(reseptinAineet);
+        container.add(uusiResepti);
                 
         
     }
