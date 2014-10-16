@@ -10,13 +10,17 @@ Järjestelmä on valmis päivitettäväksi seuraavien ominaisuuksien osalta, jot
 * Reseptiin tarvittavien ainesosien vertaaminen olemaasaoleviin ruokiin
 
 
+Käyttäjien toiminnot on listattu alla rakennekuvauksessa, sillä toiminnot vastaavat täysin käyttöliittymän luokkien rakennetta. 
+
+
+
 **Rakennekuvaus**
 
 
 *Käyttäjät*
 Käyttöjärjestelmä jonka kautta seuraavat toiminnot tapahtuvat:
 
-*Käyttäjien toiminnot*:
+*Käyttäjien toiminnot/käyttöliittymään liittyvät luokat*:
 * jääkaappiin lisääminen, lisää jääkaappiin Jaakaappiluokan kautta 
 * jääkaapinsta poistaminen, poistaa jääkaapista Jaakaappi-luokan kautta
 * jääkaapin sisällön listaaminen, listaa sisällön Jaakaappi-luokan kautta
