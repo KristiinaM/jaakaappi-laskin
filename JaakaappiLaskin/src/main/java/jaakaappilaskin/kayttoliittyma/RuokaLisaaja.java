@@ -5,7 +5,10 @@ import jaakaappilaskin.sovelluslogiikka.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
-
+/**
+ * Lisää ruoan jääkaappiin.
+ * 
+ */
 public class RuokaLisaaja implements ActionListener {
     
     private Jaakaappi jaakaappi;

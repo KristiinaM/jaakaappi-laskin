@@ -7,6 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 
+/**
+ * poistaa ruoan jäälaapista;
+ * 
+ */
 
 public class RuokaPoistaja implements ActionListener {
     

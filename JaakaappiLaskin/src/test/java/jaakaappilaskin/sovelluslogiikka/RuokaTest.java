@@ -77,8 +77,9 @@ public class RuokaTest {
         assertEquals (2, ruoka.compareTo(new Ruoka ("ketsuppi")));
     }
     
+    @Test
     public void ruoanVertailuAakkosissaJalkeen(){
-        assertEquals (-8, ruoka.compareTo(new Ruoka ("sima")));
+        assertEquals (-6, ruoka.compareTo(new Ruoka ("sima")));
     }
     
 }

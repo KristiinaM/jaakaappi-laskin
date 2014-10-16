@@ -14,7 +14,7 @@ import javax.swing.WindowConstants;
 
 /**
  * Kayttoliittyma, jonka kautta jaakaappilaskimeen paasee kasiksi
- * 
+ * se on jaoteltu sen mukaan, miten sen rivit muodostuvat.
  */
 
 public class Kayttoliittyma implements Runnable {
@@ -31,7 +31,7 @@ public class Kayttoliittyma implements Runnable {
     @Override
     public void run() {
         frame =  new JFrame("Jaakaappilaskin");
-        frame.setPreferredSize(new Dimension(800, 400));
+        frame.setPreferredSize(new Dimension(800, 800));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         luoKomponentit(frame.getContentPane());
@@ -51,7 +51,7 @@ public class Kayttoliittyma implements Runnable {
     
     private void luoKomponentit(Container container) {
        
-        GridLayout layout = new GridLayout(5, 4);
+        GridLayout layout = new GridLayout(7, 4);
         container.setLayout(layout);
         
   
@@ -64,9 +64,9 @@ public class Kayttoliittyma implements Runnable {
         
         //2. rivi, ohjeita
         
-        JTextField ohje1 = new JTextField("lisää ruoan nimi alle");
+        JTextArea ohje1 = new JTextArea("Lisää ruoan nimi alle");
         ohje1.setEditable(false);
-        JTextArea ohje2 = new JTextArea ("lisää säilyvyys alle \n (tyhjäksi jätettynä oletus 5 päivää)");
+        JTextArea ohje2 = new JTextArea ("Lisää säilyvyys alle \n (tyhjäksi jätettynä oletus 5 päivää)");
         ohje2.setEditable(false);
         JLabel tyhja = new JLabel("");
         
@@ -123,8 +123,27 @@ public class Kayttoliittyma implements Runnable {
         reseptiAineelle.addActionListener(reseptiEtsijaAine);
         
         container.add(reseptiAineelle);
+       //tehtavanvaihtorivi, 4. rivi
         
-       //reseptinlisäys 
+        container.add(new JLabel("Reseptin lisääminen ja"));
+        container.add(new JLabel("poistaminen alla"));
+        container.add(new JLabel(""));
+        container.add(new JLabel(""));
+        
+       //ohjerivi, 5. rivi
+        JTextArea ohje4 = new JTextArea("Lisää reseptin nimi alle. \n(reseptin nimi ei saa olla \nlistalla valmiina)");
+        ohje4.setEditable(false);
+        JTextArea ohje5 = new JTextArea("Lisää ainesosat alle. \n (muotoilu: \n 'aineA 1 tl' \n 1 ainesosa/rivi) ");
+        ohje5.setEditable(false);
+        JTextArea ohje6 = new JTextArea("Reseptin poistamiseen \nriittää reseptin nimi");
+        ohje6.setEditable(false);
+        
+        container.add(ohje4);
+        container.add(ohje5);
+        container.add(new JLabel(""));
+        container.add(ohje6);
+        
+       //reseptinlisäys, 5. rivi
         
         JTextField reseptinNimi = new JTextField("");
         JTextArea reseptinAineet = new JTextArea("");
@@ -136,6 +155,13 @@ public class Kayttoliittyma implements Runnable {
         container.add(reseptinAineet);
         container.add(uusiResepti);
                 
+        //reseptin poistaminen
+        
+        JButton poistaResepti = new JButton("Poista Resepti");
+        ReseptiPoistaja reseptiPoistaja = new ReseptiPoistaja(this.reseptilista, reseptinNimi);
+        poistaResepti.addActionListener(reseptiPoistaja);
+        
+        container.add(poistaResepti);
         
     }
     

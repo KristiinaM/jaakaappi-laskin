@@ -18,3 +18,7 @@
 * 6.10. klo. 19.00-20.00 yht 1 tunti (käyttöliittymän miettimistä)
 * 8.10. klo. 19.00-22.00 yht. 3 tuntia (käyttöliittymän kanssa säätämistä)
 * 9.10. klo. 18.00-21.30 yht. 3,5 tuntia (käyttöliittymän kanssa säätämistä ja dokumentointia)
+* 14.10. klo. 18.00-20.00 yht. 2 tuntia (virheiden korjaamista käyttöjärjestelmästä)
+* 15.10. klo. 18.00-22.30 yht. 4,5 tuntia (käyttöjärjestelmämn puuttuvien ominaisuuksien lisäämistä)
+* 16.10. klo. 18.00-23.45 yht. 5 tuntia 45 min (lopullista dokumentointia ja taas virheiden korjaamista)
+* 17.10. klo xx (sen päivittelyä, kuinka ei ehtinyt tehdä kaikkea, mitä aikoi) 

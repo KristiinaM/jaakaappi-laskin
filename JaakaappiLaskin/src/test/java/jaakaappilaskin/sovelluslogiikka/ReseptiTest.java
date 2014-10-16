@@ -1,6 +1,7 @@
 package jaakaappilaskin.sovelluslogiikka;
 
 
+import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -28,6 +29,15 @@ public class ReseptiTest {
     
     @After
     public void tearDown() {
+    }
+    
+    @Test
+    public void ainesosanLisaaminen(){
+        ArrayList<Ainesosa> ainesosat = new ArrayList<>(); 
+        Resepti resepti = new Resepti("resepti", ainesosat);
+        Ainesosa aine = new Ainesosa("aine", 5, "mittaa");
+        resepti.lisaaAinesosa(aine);
+        assertEquals("[aine 5 mittaa]" , resepti.haeAineet().toString());
     }
 
 

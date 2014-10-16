@@ -6,7 +6,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 
-
+/**
+ * Tämä luokka hakee seseptiä sen sisältämän aineen perusteella.
+ * 
+ */
 public class ReseptiEtsijaAine implements ActionListener{
 
     private ReseptiLista reseptilista;
@@ -23,7 +26,7 @@ public class ReseptiEtsijaAine implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         String ruoka = this.ruoanNimi.getText();
         
-        String tulos = reseptilista.reseptiAineelle(ruoka);
+        String tulos = this.reseptilista.reseptiAineelle(ruoka);
         this.ikkunaAvaaja = new IkkunaAvaaja(tulos);
         this.ikkunaAvaaja.run();
     }

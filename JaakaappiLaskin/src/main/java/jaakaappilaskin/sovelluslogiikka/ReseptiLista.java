@@ -1,7 +1,6 @@
 
 package jaakaappilaskin.sovelluslogiikka;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +8,7 @@ import java.util.ArrayList;
  * 
  */
 
-public class ReseptiLista implements Serializable{
+public class ReseptiLista{
     
     private ArrayList<Resepti> reseptiLista;
 
@@ -81,7 +80,7 @@ public class ReseptiLista implements Serializable{
                 }
             }
         }
-        if (palautettava.length()<1){
+        if (palautettava.length()<=0){
             return "Reseptiä ei löytynyt";
         }
         else{

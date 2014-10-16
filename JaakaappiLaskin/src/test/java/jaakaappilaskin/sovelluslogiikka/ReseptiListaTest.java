@@ -1,9 +1,6 @@
 package jaakaappilaskin.sovelluslogiikka;
 
 
-import jaakaappilaskin.sovelluslogiikka.Ainesosa;
-import jaakaappilaskin.sovelluslogiikka.ReseptiLista;
-import jaakaappilaskin.sovelluslogiikka.Ruoka;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -140,12 +137,35 @@ public class ReseptiListaTest {
     public void loytyvanReseptinPoistaminen(){
         this.lisaaResepteja(reseptilista);
         assertEquals(true, reseptilista.poistaResepti("pizzapohja"));
+        assertEquals("puuro\nhiutale 2 dl\nvesi 5 dl\nsuola 1 tl\n", reseptilista.etsiResepti("puuro"));
+                
     }
     
     @Test
     public void eiLoytyvanReseptinPoistaminen(){
         this.lisaaResepteja(reseptilista);
         assertEquals(false, reseptilista.poistaResepti("olematon"));
+    }
+    
+    @Test
+    public void samatAineet(){
+        
+        this.lisaaResepteja(reseptilista);
+        
+        ArrayList<Ainesosa> piirasPohja = new ArrayList <>();
+        Ainesosa jauhoja =  new Ainesosa ("jauhoja", 4, "dl");
+        Ainesosa vesipizzaan = new Ainesosa ("vesi", 2.5, "dl");
+        Ainesosa hiiva = new Ainesosa ("hiiva", 25, "g");
+        Ainesosa oljy = new Ainesosa ("öljy", 0.5, "dl");
+        piirasPohja.add(jauhoja);
+        piirasPohja.add(vesipizzaan);
+        piirasPohja.add(hiiva);
+        piirasPohja.add(oljy);
+        
+        reseptilista.lisaaResepti("piiraspohja", piirasPohja);
+        reseptilista.poistaResepti("pizzapohja");
+       
+        assertEquals("piiraspohja\njauhoja 4 dl\nvesi 2.5 dl\nhiiva 25 g\nöljy 0.5 dl\n", reseptilista.etsiResepti("piiraspohja"));
     }
     
 } 

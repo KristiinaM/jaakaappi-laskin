@@ -5,7 +5,10 @@ import jaakaappilaskin.sovelluslogiikka.ReseptiLista;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
-
+/**
+ * Tämä luokka etsii tietyn nimistä reseptiä
+ * 
+ */
 public class ReseptiEtsijaNimi implements ActionListener{
 
     private IkkunaAvaaja ikkunaAvaaja;

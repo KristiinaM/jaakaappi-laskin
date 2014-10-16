@@ -2,15 +2,16 @@
 package jaakaappilaskin.kayttoliittyma;
 
 import java.awt.Container;
-import java.awt.Dimension;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+/**
+* Tämä luokka avaa uuden ikkunan aina kun sellainen tarvitaan. 
+*/
+
 public class IkkunaAvaaja implements Runnable{
-    
+   
     
     private JFrame frame;
     private String tulostettava;
