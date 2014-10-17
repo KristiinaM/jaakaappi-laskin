@@ -51,7 +51,7 @@ public class Jaakaappi{
         int pilaantuvinSijainti = 0;
         
         for (Ruoka kaapinsisus: jaakaappi){
-            if (kaapinsisus.getNimi().equals(ruoka.getNimi())){
+            if (kaapinsisus.getNimi().equalsIgnoreCase(ruoka.getNimi())){
                 if (kaapinsisus.getSailyvyys()< sailyvyys){
                     pilaantuvinSijainti = sijainti;
                 }

@@ -1,6 +1,7 @@
 
 package jaakaappilaskin.sovelluslogiikka;
 
+
 import java.util.ArrayList;
 
 /**
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * 
  */
 
-public class Resepti {
+public class Resepti{
     
     private String nimi;
     private ArrayList<Ainesosa> ainesosat;

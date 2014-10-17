@@ -57,6 +57,8 @@ public class Kayttoliittyma implements Runnable {
   
         
         //1. rivi
+        
+        
         container.add(new JLabel ("Tämä on jääkaappilaskin!"));
         container.add(new JLabel(""));
         container.add(new JLabel (""));

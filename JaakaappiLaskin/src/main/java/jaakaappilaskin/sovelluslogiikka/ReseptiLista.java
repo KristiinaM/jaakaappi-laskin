@@ -1,6 +1,7 @@
 
 package jaakaappilaskin.sovelluslogiikka;
 
+
 import java.util.ArrayList;
 
 /**
@@ -30,7 +31,7 @@ public class ReseptiLista{
     public boolean lisaaResepti(String nimi, ArrayList<Ainesosa> aineet){
         
         for (Resepti resepti : reseptiLista){
-            if (resepti.getNimi().equals(nimi)){
+            if (resepti.getNimi().equalsIgnoreCase(nimi)){
                 return false;
             }
         }
@@ -51,7 +52,7 @@ public class ReseptiLista{
     
     public String etsiResepti(String nimi){
         for (Resepti resepti : reseptiLista){
-            if (resepti.getNimi().equals(nimi)){
+            if (resepti.getNimi().equalsIgnoreCase(nimi)){
                 return resepti.toString();
             }
         }
@@ -75,7 +76,7 @@ public class ReseptiLista{
             ArrayList<Ainesosa> aineet = resepti.haeAineet();
             
             for (Ainesosa aine: aineet){
-                if(aine.getNimi().equals(nimi)){
+                if(aine.getNimi().equalsIgnoreCase(nimi)){
                     palautettava += resepti.toString()+ "\n";
                 }
             }
@@ -99,7 +100,7 @@ public class ReseptiLista{
       public boolean poistaResepti(String nimi){
           
           for (Resepti resepti : this.reseptiLista){
-              if(resepti.getNimi().equals(nimi)){
+              if(resepti.getNimi().equalsIgnoreCase(nimi)){
                   reseptiLista.remove(resepti);
                   return true;
               }

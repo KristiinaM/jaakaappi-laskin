@@ -40,7 +40,7 @@ public class RuokaPoistaja implements ActionListener {
             }
         }
         
-        ruoanNimi.setText("ruoan nimi");
+        ruoanNimi.setText("");
         
     }
     

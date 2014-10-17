@@ -114,7 +114,7 @@ public class ReseptiListaTest {
     public void uudenReseptinLisaaminen(){
         this.lisaaResepteja(reseptilista);
         ArrayList<Ainesosa> salaatti = new ArrayList <>();
-        Ainesosa lehtisalaatti = new Ainesosa("lehtisalaatti", 1, "kerä");
+        Ainesosa lehtisalaatti = new Ainesosa("lehtisalaatti", 1, "kerÃ¤");
         Ainesosa kurkku = new Ainesosa("kurkku", 1, "kpl");
         Ainesosa tomaatti = new Ainesosa("tomaatti", 4, "kpl");
         assertEquals(true, reseptilista.lisaaResepti("Salaatti", salaatti));
@@ -128,7 +128,7 @@ public class ReseptiListaTest {
         Ainesosa jauhoja =  new Ainesosa ("jauhoja", 4, "dl");
         Ainesosa vesipizzaan = new Ainesosa ("vesi", 2.5, "dl");
         Ainesosa hiiva = new Ainesosa ("hiiva", 25, "g");
-        Ainesosa oljy = new Ainesosa ("öljy", 0.5, "dl");
+        Ainesosa oljy = new Ainesosa ("Ã¶ljy", 0.5, "dl");
         
         assertEquals(false, reseptilista.lisaaResepti("pizzapohja", pizzapohja));
     }
@@ -168,6 +168,31 @@ public class ReseptiListaTest {
         assertEquals("piiraspohja\njauhoja 4 dl\nvesi 2.5 dl\nhiiva 25 g\nöljy 0.5 dl\n", reseptilista.etsiResepti("piiraspohja"));
     }
     
+    @Test
+    public void reseptinEtsintaIgnoreCaseToimii(){
+        this.lisaaResepteja(reseptilista);
+        assertEquals("puuro\nhiutale 2 dl\nvesi 5 dl\nsuola 1 tl\n", reseptilista.etsiResepti("PuUro"));
+    }
+    
+    @Test
+    public void reseptinEtsintaAineelleIgnoreCaseToimii(){
+        this.lisaaResepteja(reseptilista);
+        
+        assertEquals("puuro\nhiutale 2 dl\nvesi 5 dl\nsuola 1 tl\n\n",reseptilista.reseptiAineelle("HIUTALE"));
+    }
+    
+    @Test
+    public void reseptinPoistoIgnoreCaseToimii(){
+        this.lisaaResepteja(reseptilista);
+        reseptilista.poistaResepti("PuuRo");
+        assertEquals("Reseptiä ei löytynyt", reseptilista.etsiResepti("puuro"));
+    }
+     @Test
+     public void reseptinLisaaminenIgnoreCaseToimii(){
+         this.lisaaResepteja(reseptilista);
+         ArrayList<Ainesosa> aineet = new ArrayList<>();
+         assertEquals(false, reseptilista.lisaaResepti("PUURO", aineet));
+     }
 } 
 
 

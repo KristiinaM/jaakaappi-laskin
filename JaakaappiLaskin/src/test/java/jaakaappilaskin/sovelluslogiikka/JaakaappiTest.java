@@ -161,6 +161,14 @@ public class JaakaappiTest {
         kaappi.poistaRuoka(piima);
         assertEquals("", kaappi.toString());
     }
+    
+    @Test
+    public void poistaakoOikein(){
+        Ruoka piima = new Ruoka("Piima");
+        this.lisaaYksi(kaappi);
+        this.kaappi.poistaRuoka(piima);
+        assertEquals("", kaappi.toString());
+    }
   
 
         
